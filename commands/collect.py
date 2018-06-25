@@ -87,8 +87,8 @@ def call_function(outputfile, handler, method_to_call, parameters):
 def collect(arguments):
     account_dir = './{}'.format(arguments.account_name)
 
-    if arguments.clean and os.path.exists(account_dir):
-        rmtree(account_dir)
+    if arguments.clean and os.path.exists('account-data/{}'.format(account_dir)):
+        rmtree('account-data/{}'.format(account_dir))
 
     make_directory("account-data")
     make_directory("account-data/{}".format(account_dir))
@@ -102,7 +102,7 @@ def collect(arguments):
     session = boto3.Session(**session_data)
     ec2 = session.client('ec2')
 
-    region_list = ec2.describe_regions()
+    region_list = ec2.describe_regions(RegionNames=['us-east-1', 'ap-northeast-1'])
     with open("account-data/{}/describe-regions.json".format(account_dir), 'w+') as f:
         f.write(json.dumps(region_list, indent=4, sort_keys=True))
 

@@ -2,6 +2,7 @@ config.json
 .DS_Store
 *.pyc
 venv/
+env/
 web/data.json
 .coverage
 htmlcov/
