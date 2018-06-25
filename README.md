@@ -33,6 +33,8 @@ On Linux:
 ```
 # clone the repo
 git clone git@github.com:duo-labs/cloudmapper.git
+# (AmazonLinux2):
+# sudo yum install autoconf automake libtool python-devel python-virtualenv jq awscli
 # (Centos, Fedora, RedHat etc.):
 # sudo yum install autoconf automake libtool python-devel jq awscli
 # (Debian, Ubuntu etc.):
@@ -41,6 +43,7 @@ sudo apt-get install autoconf automake libtool python-dev jq awscli
 cd cloudmapper/
 virtualenv venv
 source venv/bin/activate
+pip install -U pip setuptools
 pip install -r requirements.txt
 ```
 
